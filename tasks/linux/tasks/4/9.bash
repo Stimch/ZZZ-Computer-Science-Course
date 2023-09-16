@@ -1,2 +1,2 @@
  Выведите 5 строчек после слова eth0/enp0s3 при выводе команды ifconfig
- По идее ifconfig, но у меня в нём отсутствует enp0s3
+ ifconfig eth0 | head -n 5
