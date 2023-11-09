@@ -33,7 +33,7 @@ int Task() {
     Matrix matrix = CreateMatrix(lines);
     matrix = FillMatrix(matrix, lines, columns);
     int32_t a[N * M];  // массив для хранения результата
-    int32_t k = 1;  // порядковый номер нового элемента в новом массиве
+    int32_t k = 1;
     int32_t direction = 0;  // переменная для направления движения по матрице
     int32_t steps = 1;
     lines = (lines / 2) - 1;  // уменьшаем значение переменной для определения точки старта
@@ -76,7 +76,7 @@ int Task() {
         }
     }
     for (int i = 0; i < stop; i++) {  // цикл для движения влево по последней строке
-        columns -= 1;  // уменьшаем columns на 1, т.к. идем влево
+        columns -= 1;
         *(a + k) = matrix[lines][columns];
         k += 1;
     }
