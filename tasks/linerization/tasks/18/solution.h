@@ -83,7 +83,7 @@ int Task() {
     for (int32_t i = 0; i < size; ++i) {
         printf("%d ", a[i]);
     }
-    for (int32_t i = 0; i < (lines * 2); ++i) {
+    for (size_t i = 0; i < N; ++i) {
         free(matrix[i]);
     }
     free(matrix);
