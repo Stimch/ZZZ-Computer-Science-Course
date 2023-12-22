@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef int32_t** Matrix;
+typedef int32_t **Matrix;
 
 Matrix CreateMatrix(int32_t n) {
     Matrix matrix = (Matrix)malloc(n * sizeof(int32_t *));
@@ -94,8 +94,6 @@ bool *RemoveColumns(Matrix matrix, int32_t n) {
     }
     return columns_to_remove;
 }
-
-
 
 int Task() {
     const char *file = "test.txt";
