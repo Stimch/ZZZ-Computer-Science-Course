@@ -17,7 +17,7 @@ Matrix CreateMatrix(int32_t n) {
 
 int CountLines(const char *file_path) {
     int count = 0;
-    char c;
+    char c = 'a';
     FILE *file = fopen(file_path, "r");
     if (file == NULL) {
         perror("Can't open this file");
