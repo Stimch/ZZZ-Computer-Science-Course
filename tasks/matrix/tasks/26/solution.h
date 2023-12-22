@@ -96,7 +96,7 @@ bool *RemoveColumns(Matrix matrix, int32_t n) {
 }
 
 int Task() {
-    const char *file = "test.txt";
+    const char *file = "../tasks/matrix/tasks/26/test.txt";
     int32_t n = CountLines(file);
     Matrix matrix = NULL;
     matrix = ReadMatrix(file, &n);
