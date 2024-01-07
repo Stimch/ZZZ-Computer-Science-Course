@@ -26,21 +26,18 @@ Matrix FillMatrix(Matrix matrix, int32_t lines, int32_t columns) {
     return matrix;
 }
 
-int Task() {
-    int32_t lines = N;
-    int32_t columns = M;
-    int32_t size = lines * columns;
-    Matrix matrix = CreateMatrix(lines);
-    matrix = FillMatrix(matrix, lines, columns);
-    int32_t a[N * M];  // массив для хранения результата
+void PrintMatrix(Matrix matrix, int32_t lines, int32_t columns) {
+    for (int32_t i = 0; i < lines; ++i) {
+        for (int32_t j = 0; j < columns; ++j) {
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+int32_t GoThroughMatrix(Matrix matrix, int32_t *a, int32_t swing, int32_t lines, int32_t columns, int32_t steps, int32_t direction) {
     int32_t k = 1;
-    int32_t direction = 0;  // переменная для направления движения по матрице
-    int32_t steps = 1;
-    lines = (lines / 2) - 1;  // уменьшаем значение переменной для определения точки старта
-    columns = (columns / 2) - 1;  // уменьшаем значение переменной для определения точки старта
-    int32_t stop = (((columns + 1) * 2) - 1);  // посчитал эту переменную для определния кол-ва "махов"
-    *(a) = matrix[lines][columns];
-    for (int x = 0; x < stop; x++) {
+    for (int x = 0; x < swing; x++) {
         for (int y = 0; y < 2; y++) {
             if (direction == 0) {  // direction = 0 => двигаемся вправо
                 for (int e = 1; e < steps + 1; e++) {
@@ -75,11 +72,31 @@ int Task() {
             }
         }
     }
-    for (int i = 0; i < stop; i++) {  // цикл для движения влево по последней строке
+    for (int i = 0; i < swing; i++) {  // цикл для движения влево по последней строке
         columns -= 1;
         *(a + k) = matrix[lines][columns];
         k += 1;
     }
+}
+
+int Task() {
+    int32_t lines = N;
+    int32_t columns = M;
+    int32_t size = lines * columns;
+    Matrix matrix = CreateMatrix(lines);
+    matrix = FillMatrix(matrix, lines, columns);
+    printf("The Original Matrix:\n");
+    PrintMatrix(matrix, lines, columns);
+    int32_t a[N * M];  // массив для хранения результата
+    int32_t k = 1;
+    int32_t direction = 0;  // переменная для направления движения по матрице
+    int32_t steps = 1;
+    lines = (lines / 2) - 1;  // уменьшаем значение переменной для определения точки старта
+    columns = (columns / 2) - 1;  // уменьшаем значение переменной для определения точки старта
+    int32_t swing = (((columns + 1) * 2) - 1);  // посчитал эту переменную для определния кол-ва "махов"
+    *(a) = matrix[lines][columns];
+    printf("The Result:\n");
+    GoThroughMatrix(matrix, a, swing, lines, columns, steps, direction);
     for (int32_t i = 0; i < size; ++i) {
         printf("%d ", a[i]);
     }
