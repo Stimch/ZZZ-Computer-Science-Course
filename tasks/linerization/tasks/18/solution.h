@@ -35,9 +35,9 @@ void PrintMatrix(Matrix matrix, int32_t lines, int32_t columns) {
     }
 }
 
-int32_t GoThroughMatrix(Matrix matrix, int32_t *a, int32_t swing, int32_t lines, int32_t columns, int32_t steps,
-                        int32_t direction) {
+int32_t GoThroughMatrix(Matrix matrix, int32_t *a, int32_t swing, int32_t lines, int32_t columns, int32_t steps) {
     int32_t k = 1;
+    int32_t direction = 0;  // переменная для направления движения по матрице
     for (int x = 0; x < swing; x++) {
         for (int y = 0; y < 2; y++) {
             if (direction == 0) {  // direction = 0 => двигаемся вправо
@@ -90,14 +90,13 @@ int Task() {
     PrintMatrix(matrix, lines, columns);
     int32_t a[N * M];  // массив для хранения результата
     int32_t k = 1;
-    int32_t direction = 0;  // переменная для направления движения по матрице
     int32_t steps = 1;
     lines = (lines / 2) - 1;  // уменьшаем значение переменной для определения точки старта
     columns = (columns / 2) - 1;  // уменьшаем значение переменной для определения точки старта
     int32_t swing = (((columns + 1) * 2) - 1);  // посчитал эту переменную для определния кол-ва "махов"
     *(a) = matrix[lines][columns];
     printf("The Result:\n");
-    GoThroughMatrix(matrix, a, swing, lines, columns, steps, direction);
+    GoThroughMatrix(matrix, a, swing, lines, columns, steps);
     for (int32_t i = 0; i < size; ++i) {
         printf("%d ", a[i]);
     }
