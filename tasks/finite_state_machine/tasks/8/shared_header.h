@@ -3,14 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef enum {
-    START = 0,
-    READ,
-    DECODE,
-    WRITE,
-    STATECOUNT,
-    END
-} StateName;
+typedef enum { START = 0, READ, DECODE, WRITE, STATECOUNT, END } StateName;
 
 typedef struct State State;
 
