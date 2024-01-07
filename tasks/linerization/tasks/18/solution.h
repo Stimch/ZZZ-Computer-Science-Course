@@ -35,7 +35,7 @@ void PrintMatrix(Matrix matrix, int32_t lines, int32_t columns) {
     }
 }
 
-int32_t GoThroughMatrix(Matrix matrix, int32_t *a, int32_t swing, int32_t lines, int32_t columns, int32_t steps) {
+int32_t GoThroughMatrix(Matrix matrix, int32_t* a, int32_t swing, int32_t lines, int32_t columns, int32_t steps) {
     int32_t k = 1;
     int32_t direction = 0;  // переменная для направления движения по матрице
     for (int x = 0; x < swing; x++) {
