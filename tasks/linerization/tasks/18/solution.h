@@ -89,7 +89,6 @@ int Task() {
     printf("The Original Matrix:\n");
     PrintMatrix(matrix, lines, columns);
     int32_t a[N * M];  // массив для хранения результата
-    int32_t k = 1;
     int32_t steps = 1;
     lines = (lines / 2) - 1;  // уменьшаем значение переменной для определения точки старта
     columns = (columns / 2) - 1;  // уменьшаем значение переменной для определения точки старта
