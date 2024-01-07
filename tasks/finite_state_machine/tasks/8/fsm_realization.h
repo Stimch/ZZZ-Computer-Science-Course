@@ -1,3 +1,5 @@
+#pragma once
+
 #include "shared_header.h"
 #include "state.h"
 
